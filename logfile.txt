@@ -1,0 +1,78 @@
+Starting age I
+alice played [33mclay pool B[0m 
+Bob played [37mpress P[0m 
+Frank played [33more vein O[0m 
+alice played [37mloom L[0m 
+Bob played [33mlumber yard W[0m 
+Frank played [1;33mmarketplace trade-${GLP} <>[0m 
+alice played [1;33meast trading post trade-${WOBS} >[0m 
+Bob discarded an age I card for $3
+Frank played [37mglassworks G[0m 
+alice played [34maltar 2 points[0m 
+Bob played [33mstone pit S[0m 
+Frank played [34mtheatre 2 points[0m 
+alice played [33mclay pit B/O[0m paying $1 to the bank.
+Bob played [31mbarracks 1[0m paying $2 to the player to his right.
+Frank played [31mguard tower 1[0m paying $2 to the player to his right.
+alice played [31mstockade 1[0m paying $2 to the player to his right.
+Bob played [92mscriptorium T[0m 
+Frank played [33mtimer yard S/W[0m paying $1 to the bank.
+alice and Frank both have 1 strength, No points awarded.
+alice and Bob both have 1 strength, No points awarded.
+Bob and alice both have 1 strength, No points awarded.
+Bob and Frank both have 1 strength, No points awarded.
+Frank and Bob both have 1 strength, No points awarded.
+Frank and alice both have 1 strength, No points awarded.
+Starting age II
+alice played [37mglassworks G[0m 
+Bob discarded an age II card for $3
+Frank played [33mbrickyard BB[0m paying $1 to the bank.
+alice played [33msawmill WW[0m paying $1 to the bank.
+Bob played [33mquarry SS[0m paying $1 to the bank.
+Frank played [37mloom L[0m 
+alice played [33mfoundry OO[0m paying $1 to the bank.
+Bob played [1;33mforum +resource{G/L/P}[0m paying $4 to the player to his right.
+Frank played [34maqueduct 5 points[0m paying $2 to the player to his left.
+alice played [34mstatue 4 points[0m 
+Bob played [1;33mcaravansery +resource{W/S/O/B}[0m paying $2 to the player to his right.
+Frank played [1;33mvineyard ${brown} <v>[0m 
+alice played [34mtemple 3 points[0m (for free with [34maltar 2 points[0m)
+Bob played [31marchery range 2[0m paying $2 to the player to his right.
+Frank played [34mcourthouse 4 points[0m 
+alice played [31mstables 2[0m 
+Bob played [31mwalls 2[0m 
+Frank played [92mschool T[0m paying $1 to the player to his left.
+alice with 3 shields defeated Frank with 1 shields taking 3 points.
+alice with 3 shields was defeated by Bob with 5 shields losing -1 points.
+Bob with 5 shields defeated alice with 3 shields taking 3 points.
+Bob with 5 shields defeated Frank with 1 shields taking 3 points.
+Frank with 1 shields was defeated by Bob with 5 shields losing -1 points.
+Frank with 1 shields was defeated by alice with 3 shields losing -1 points.
+Starting age III
+alice played [1;33mhaven $V{brown}[0m 
+Bob played [1;33marena $$$V{yellow}[0m 
+Frank played [1;33mlighthouse $V{wonder}[0m 
+alice played [34mtown hall 6 points[0m paying $1 to the player to his left, $2 to the player to his right.
+Bob played [34mpantheon 7 points[0m paying $2 to the player to his right.
+Frank played [31marsenal 3[0m paying $2 to the player to his right.
+alice played [34mpalace 8 points[0m paying $1 to the player to his left, $2 to the player to his right.
+Bob played [31mfortification 3[0m (for free with [31mwalls 2[0m)
+Frank played [34msenate 6 points[0m paying $2 to the player to his left, $2 to the player to his right.
+alice played [92muniversity T[0m paying $2 to the player to his right.
+Bob played [92mstudy G[0m 
+Frank played [34mgardens 5 points[0m 
+alice discarded an age III card for $3
+Bob played [31msiege workshop 3[0m paying $4 to the player to his right.
+Frank played [92mobservatory G[0m paying $2 to the player to his right.
+alice played [92mlodge C[0m paying $2 to the player to his right.
+Bob played [35mshipowners guild V{brown | grey | purple}[0m paying $2 to the player to his right.
+Frank played [35mspies guild V{red} <>[0m paying $2 to the player to his right.
+alice with 3 shields was defeated by Frank with 4 shields losing -1 points.
+alice with 3 shields was defeated by Bob with 11 shields losing -1 points.
+Bob with 11 shields defeated alice with 3 shields taking 5 points.
+Bob with 11 shields defeated Frank with 4 shields taking 5 points.
+Frank with 4 shields was defeated by Bob with 11 shields losing -1 points.
+Frank with 4 shields defeated alice with 3 shields taking 5 points.
+alice Final score: Blue: 23, Green: 2, red: 0, yellow: 4, purple: 0, $: 1, total: 30
+Bob Final score: Blue: 7, Green: 2, red: 16, yellow: 3, purple: 5, $: 2, total: 35
+Frank Final score: Blue: 22, Green: 2, red: 2, yellow: 0, purple: 7, $: 4, total: 37
