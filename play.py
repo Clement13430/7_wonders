@@ -1,4 +1,4 @@
-from cards import helpers
+from cards.helpers import read_cards_file
 from game import GameState
 from players.Personalities import Human, StupidAI
 from players.Wonders import read_wonders_file
@@ -9,7 +9,7 @@ def init_games():
 
     global __all_wonders
 
-    __all_cards = helpers.read_cards_file("card-descriptions.txt")
+    __all_cards = read_cards_file("card-descriptions.txt")
     __all_wonders = read_wonders_file("wonders.txt")
 
 

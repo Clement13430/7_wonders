@@ -13,9 +13,8 @@
 import random
 from collections import deque
 
+from Cards import Card
 from common import *
-
-from . import Cards
 
 
 def build_card(colour, name, age, cost, players, infostr):
@@ -46,7 +45,8 @@ def build_card(colour, name, age, cost, players, infostr):
     return None
 
 
-def read_cards_file(filename):
+def read_cards_file(filename: str) -> list[Card]:
+    """Return a 1D list of all the cards from a file."""
     cards = []
     with open(filename) as f:
         content = f.readlines()
@@ -67,6 +67,8 @@ def read_cards_file(filename):
             c = build_card(colour, name, age, cost, players, text)
             if c:
                 c.parse_chains(prebuilt, postbuilt)
+                print(c)
+                print(type(c))
                 cards.append(c)
     print("Loaded %d cards" % (len(cards)))
     return cards
