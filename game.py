@@ -166,19 +166,6 @@ class GameState:
 		self.logger.dump(logfile)
 		logfile.close()
 
-init_games()
-game = GameState([("alice", Personalities.Human), ("Bob", Personalities.StupidAI), ("Frank", Personalities.StupidAI)])
-game.logger.card_list = __all_cards
-game.setup_age_cards(__all_cards)
-game.deal_wonders(__all_wonders)
-game.game_loop()
 
-#p = game.players[0]
-#p.money = 10
-#p.tableau += [find_card(__all_cards, "quarry"), find_card(__all_cards, "clay pit"), find_card(__all_cards, "press")]
-#game.players[1].tableau += [find_card(__all_cards, "glassworks"), find_card(__all_cards, "sawmill"), find_card(__all_cards, "foundry")]
-
-#p.buy_card(find_card(__all_cards, "fortification"), game.players[1], game.players[2])
-
-#game.players[0].tableau += [find_card(__all_cards, "study"), find_card(__all_cards, "lodge"), find_card(__all_cards, "scientist guild")]
-#print helpers.score_science(game.players[0])
+ 
+        
