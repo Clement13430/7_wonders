@@ -11,31 +11,32 @@
 # KIND, either express or implied.
 
 from sys import stdin
-from common import *
+
 import cards
+from common import *
 
 
 class Personality:
-	def __init__(self):
-		pass
-	
-	def make_choice(self, options):
-		pass
+    def __init__(self):
+        pass
+
+    def make_choice(self, options):
+        pass
 
 
 class StupidAI(Personality):
-	def __init__(self):
-		pass
-	
-	def make_choice(self, options):
-		return 0
+    def __init__(self):
+        pass
+
+    def make_choice(self, options):
+        return 0
+
 
 class Human(Personality):
-	def __init__(self):
-		pass
-	
-	def make_choice(self, options):
-		choice = input("Please enter your choice: \n")
-		return int(choice)
-		# return int(stdin.readline())
+    def __init__(self):
+        pass
 
+    def make_choice(self, options):
+        choice = input("Please enter your choice: \n")
+        return int(choice)
+        # return int(stdin.readline())
