@@ -10,7 +10,28 @@
 # This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
 # KIND, either express or implied.
 
-from common import *
+from common import (
+    CARDS_BLUE,
+    CARDS_BROWN,
+    CARDS_GREEN,
+    CARDS_GREY,
+    CARDS_PURPLE,
+    CARDS_RED,
+    CARDS_YELLOW,
+    RESOURCE_BRICK,
+    RESOURCE_GLASS,
+    RESOURCE_LOOM,
+    RESOURCE_MONEY,
+    RESOURCE_ORE,
+    RESOURCE_PAPER,
+    RESOURCE_STONE,
+    RESOURCE_WOOD,
+    DIRECTION_EAST,
+    DIRECTION_SELF,
+    DIRECTION_WEST,
+    ALL_RESOURCES,
+    RESOURCE_VICTORYPOINT,
+)
 
 
 class Card:
@@ -367,6 +388,13 @@ class TradeReductionCardInfo:
 
     def __repr__(self):
         return f"reduction of {self.value} in the directions : {self.directions} for the ressources: {self.resources} | \n"
+
+
+class TradeCardInfo:
+    def __init__(self, value, resources, directions):
+        self.value = value
+        self.resources = resources
+        self.directions = directions
 
 
 class GainCardInfo:

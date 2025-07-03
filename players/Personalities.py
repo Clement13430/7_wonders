@@ -12,9 +12,6 @@
 
 from sys import stdin
 
-import cards
-from common import *
-
 
 class Personality:
     def __init__(self):

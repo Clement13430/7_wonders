@@ -13,22 +13,43 @@
 import random
 from collections import deque
 
-from Cards import Card
-from common import *
+from cards.cards import (
+    BrownCard,
+    GreyCard,
+    BlueCard,
+    GreenCard,
+    RedCard,
+    YellowCard,
+    PurpleCard,
+    Card,
+)
+
+from common import (
+    CARDS_BLUE,
+    CARDS_BROWN,
+    CARDS_GREEN,
+    CARDS_GREY,
+    CARDS_PURPLE,
+    CARDS_RED,
+    CARDS_YELLOW,
+    SCIENCE_COMPASS,
+    SCIENCE_GEAR,
+    SCIENCE_TABLET,
+)
 
 
 def build_card(colour, name, age, cost, players, infostr):
     cardclasses = {
-        CARDS_BROWN: Cards.BrownCard,
-        CARDS_GREY: Cards.GreyCard,
-        CARDS_BLUE: Cards.BlueCard,
-        CARDS_GREEN: Cards.GreenCard,
-        CARDS_RED: Cards.RedCard,
-        CARDS_YELLOW: Cards.YellowCard,
-        CARDS_PURPLE: Cards.PurpleCard,
+        CARDS_BROWN: BrownCard,
+        CARDS_GREY: GreyCard,
+        CARDS_BLUE: BlueCard,
+        CARDS_GREEN: GreenCard,
+        CARDS_RED: RedCard,
+        CARDS_YELLOW: YellowCard,
+        CARDS_PURPLE: PurpleCard,
     }
 
-    if not colour in cardclasses:
+    if colour not in cardclasses:
         return None
     # print(infostr)
     # print(f'colour = {colour}')
@@ -36,7 +57,7 @@ def build_card(colour, name, age, cost, players, infostr):
     card = cardclasses[colour](name, age, cost, players, infostr)
     # print(card)
     # input()
-    if card != None and card.parse_infotext(infostr):
+    if card is not None and card.parse_infotext(infostr):
         if colour == CARDS_PURPLE:
             card.colour = CARDS_PURPLE
         return card

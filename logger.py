@@ -11,7 +11,12 @@
 # KIND, either express or implied.
 
 import cards
-from common import *
+from common import (
+    ACTION_DISCARD,
+    ACTION_PLAYCARD,
+    ACTION_STAGEWONDER,
+    find_card,
+)
 
 
 class Logger:
