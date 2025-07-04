@@ -15,14 +15,9 @@ import random
 import logger
 from cards import helpers
 from common import ACTION_DISCARD, ACTION_PLAYCARD, ACTION_STAGEWONDER, CARDS_PURPLE
-from players.Personalities import Human, StupidAI
-from players.Players import Player
-from players.Wonders import read_wonders_file
-
-
-
-
-
+from players.personalities import Human, StupidAI
+from players.players import Player
+from players.wonders import read_wonders_file
 
 
 class GameState:
@@ -136,7 +131,7 @@ class GameState:
             print(f"Age {age+1}")
             self.logger.log_age_header(age)
             self.deal_age_cards(age)
-            offset = 0  # je comprends pas trop ce truc
+            offset = 0  # le numéro du tour de jeu actuel au sein d'un age
             while len(self.decks[0]) > 1:
                 self.play_turn(offset)
                 offset = (
@@ -218,7 +213,3 @@ class GameState:
         logfile = open("logfile.txt", "w")
         self.logger.dump(logfile)
         logfile.close()
-
-
- 
-        

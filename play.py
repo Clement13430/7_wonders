@@ -1,7 +1,7 @@
 from cards.helpers import read_cards_file
 from game import GameState
-from players.Personalities import Human, StupidAI
-from players.Wonders import read_wonders_file
+from players.personalities import Human, StupidAI
+from players.wonders import read_wonders_file
 
 
 def init_games():

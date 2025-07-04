@@ -19,6 +19,7 @@ class Wonder:
         self.side_a = []  # (cost, action)
         self.side_b = []  # (cost, action)
         self.built_stages = 0
+        self.discred_cards = (None, None, None)
 
     def parse_stages(self, text, isSideA=True):
         if isSideA:
@@ -34,7 +35,8 @@ class Wonder:
         return True
 
 
-def read_wonders_file(filename):
+def read_wonders_file(filename: str) -> list[Wonder]:
+    """Build a list of all the possible wonders."""
     wonders = []
     with open(filename) as f:
         content = f.readlines()

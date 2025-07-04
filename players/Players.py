@@ -60,6 +60,7 @@ class Player:
         self.west_trade_prices = self.east_trade_prices.copy()
         self.wonder = None
         self.side_a_wonder = True
+        self.current_stage_wonder = 0  # from 0 (not started) to 3 (ended)
         self.personality = None
 
     def set_personality(self, persona):
@@ -126,7 +127,7 @@ class Player:
         input()
         return all_resources_combination
 
-    def can_buy_card(self, card, west_player, east_player) -> tuple:
+    def can_do_card(self, resources_needed, west_player, east_player) -> tuple:
         """Return the following tuple: (True/False if the player can buy the card, the money he has to pay to the bank, the money he has to play to the west player, the money
         he has to pay to the east player)."""
         missing = []
@@ -140,7 +141,7 @@ class Player:
         resources_left_player = self.resources
         resources_left_west_player = west_player.resources
         resources_left_east_player = east_player.resources
-        card_cost = copy.copy(card.cost)
+        card_cost = copy.copy(resources_needed)
 
         if len(card_cost) == 0:
             return [True, money_spent, cost_west, cost_east]
@@ -162,23 +163,22 @@ class Player:
 
         # Check first if the permenant resources of the player are enough to buy the card
         if len(resources_left_player) > 0:
-            i = 0
-            while i < len(card_cost):
-                j = 0
-                while j < len(resources_left_player):
-                    if card_cost[i] == resources_left_player[j]:
-                        card_cost.pop(i)
-                        resources_left_player.pop(j)
-                        j = 0
+            cost_num = 0
+            while cost_num < len(card_cost):
+                ressource_num = 0
+                while ressource_num < len(resources_left_player):
+                    if card_cost[cost_num] == resources_left_player[ressource_num]:
+                        card_cost.pop(cost_num)
+                        resources_left_player.pop(ressource_num)
+                        ressource_num = 0
+                        cost_num += 1
                     else:
-                        j += 1
-                        i += 1
+                        ressource_num += 1
 
         if len(card_cost) == 0:
             return [True, money_spent, cost_west, cost_east]
 
-        # Check if the player can buy the card using his own variable resources and/or by paying its neighbours
-        money_to_left, monay_to_right = 0, 0
+        # Check if the player can buy the card using his own variable resources and/or by paying its neighbours and/or using its yellow resources
         print(self.yellow_resources)
         # for combinaison in itertools.product(*self.yellow_resources):
         # 	print(combinaison)
@@ -253,19 +253,45 @@ class Player:
         # print sorted(legal_options, key=lambda x: x.total_cost)
         # return sorted(legal_options, key=lambda x: x.total_cost)
 
+    def can_do_next_stage(self, west_player, east_player) -> tuple:
+        money_to_bank, money_to_west, money_to_right = 0, 0, 0
+        if self.current_stage_wonder == 3:
+            return [False, money_to_bank, money_to_west, money_to_right]
+        if self.side_a_wonder:
+            stage = self.wonder.side_a[self.current_stage_wonder]
+        else:
+            stage = self.wonder.side_b[self.current_stage_wonder]
+        print(stage)
+        resources_needed = stage[0]
+        res = self.can_do_card(resources_needed, west_player, east_player)
+
     def play_hand(self, hand, west_player, east_player):
         """display all the cards and actions that can be done and return the choice of the player"""
         options = []
         for card in hand:
             # print card.get_name(), self.is_card_in_tableau(card)
             if not self.is_card_in_tableau(card):
-                if self.can_build_with_chain(card):
-                    options.append((ACTION_PLAYCARD, card))
-                elif self.can_buy_card(card, west_player, east_player):
-                    options.append((ACTION_PLAYCARD, card))
-            options.append((ACTION_DISCARD, card))
-            if self.wonder.built_stages < 3:  # FIXMEself.wonder.stages:
-                options.append((ACTION_STAGEWONDER, card))
+                res_chain = self.can_build_with_chain(card)
+                res = self.can_do_card(card.cost, west_player, east_player)
+                if res_chain:
+                    options.append(
+                        (ACTION_PLAYCARD, card, res_chain[1:3])
+                    )
+                
+                elif :
+                    options.append(
+                        (
+                            ACTION_PLAYCARD,
+                            card,
+                            self.can_buy_card(card, west_player, east_player)[1:3],
+                        )
+                    )
+            options.append((ACTION_DISCARD, card, None))
+            stage_result = self.can_do_next_stage(west_player, east_player)
+            if (
+                self.wonder.built_stages < 3 and stage_result[0]
+            ):  # FIXMEself.wonder.stages:
+                options.append((ACTION_STAGEWONDER, card, stage_result[1:3]))
         i = 0
         print("-=================-")
 
@@ -289,12 +315,13 @@ class Player:
             }
             card = o[1]
             print(
-                "[%d]: %s\t%s\t%s"
+                "[%d]: %s\t%s\t%s\t%s"
                 % (
                     i,
                     actions[o[0]],
                     card.get_cost_as_string(),
                     card.pretty_print_name(),
+                    o[2],
                 )
             )
             i += 1
@@ -378,8 +405,8 @@ class Player:
     def can_build_with_chain(self, card):
         for precard in card.prechains:
             if find_card(self.get_cards(), precard):
-                return True
-        return False
+                return (True,0,0,0)
+        return (False,0,0,0) # (Can do the card or not, money to the bank, money to west player, money to east player)
 
     def can_buy_card(self, card, west_player, east_player):
         """Return True if a card can be put by the player using his own ressources and the ones present in it's neighbours board."""
@@ -638,6 +665,7 @@ class CardPurchaseOption:
         self.cost_to_the_bank = cost_to_the_bank
         self.east_cost = east_cost
         self.west_cost = west_cost
+        print(type(self.east_cost), type(self.west_cost), type(cost_to_the_bank))
         self.total_cost = self.east_cost + self.west_cost + cost_to_the_bank
 
     def set_total(self, cost):

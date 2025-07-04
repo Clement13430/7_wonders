@@ -88,8 +88,8 @@ def read_cards_file(filename: str) -> list[Card]:
             c = build_card(colour, name, age, cost, players, text)
             if c:
                 c.parse_chains(prebuilt, postbuilt)
-                print(c)
-                print(type(c))
+                # print(c)
+                # print(type(c))
                 cards.append(c)
     print("Loaded %d cards" % (len(cards)))
     return cards
