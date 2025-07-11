@@ -97,11 +97,7 @@ class Card:
     def get_cost(self):
         return self.cost
 
-    def get_cost_as_string(self):
-        out = ""
-        for r in self.get_cost():
-            out += r
-        return out
+
 
     def is_resource_card(self):  # generally brown/grey and some yellow
         return (False, False)  # (resource card, tradeable)

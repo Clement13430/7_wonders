@@ -1,25 +1,9 @@
-#!/usr/bin/python
-#
-# Copyright 2015 - Jonathan Gordon
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
-# KIND, either express or implied.
+"""All the log functions used to register everything that happend in the game."""
 
-import cards
-from common import (
-    ACTION_DISCARD,
-    ACTION_PLAYCARD,
-    ACTION_STAGEWONDER,
-    find_card,
-)
+from common import ACTION_DISCARD, ACTION_PLAYCARD, ACTION_STAGEWONDER, find_card
 
 
-class Logger:
+class Logger:  # WIP
     def __init__(self):
         self.log = []
         self.card_list = []

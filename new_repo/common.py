@@ -1,14 +1,4 @@
-#!/usr/bin/python
-#
-# Copyright 2015 - Jonathan Gordon
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
-# KIND, either express or implied.
+"""Side information about all the different micro elements of the game."""
 
 RESOURCE_MONEY = "$"
 RESOURCE_WOOD = "W"
@@ -54,16 +44,28 @@ CARDS_BLUE = "blue"
 CARDS_RED = "red"
 CARDS_PURPLE = "purple"
 
+ALL_COLOURS = {
+    CARDS_BROWN,
+    CARDS_GREY,
+    CARDS_YELLOW,
+    CARDS_GREEN,
+    CARDS_BLUE,
+    CARDS_RED,
+    CARDS_PURPLE,
+}
+
 INFOPREFIX_TRADE = "trade"
 INFOPREFIX_PROVIDER = "+"
 
 
 def sort_cards(cards, reverse=False):
+    """Sort the cards by their names."""
     return sorted(cards, key=lambda x: x.get_name(), reverse=reverse)
 
 
 def find_card(cards, name):
+    """Find a card giving its name."""
     for c in cards:
-        if c.get_name() == name:
+        if c.name == name:
             return c
     return None
